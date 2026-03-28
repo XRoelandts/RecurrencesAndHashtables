@@ -1,0 +1,111 @@
+1. Recurrence: T(n) = 5T(n/7) + 3n^2
+
+Repeated Substitution:
+
+T(n) = 5T(n/7) + 3n^2
+
+T(n) = 5[5T(n/7^2) + 3(n/7)^2] + 3n^2
+     = 5^2 T(n/7^2) + 5 * 3 * (n^2 / 7^2) + 3n^2
+
+T(n) = 5^3 T(n/7^3) + 5^2 * 3 * (n^2 / 7^4) + 5 * 3 * (n^2 / 7^2) + 3n^2
+
+Pattern:
+T(n) = 5^k T(n/7^k) + 3n^2 * SUM(i=0 to k-1)[(5/49)^i]
+
+Stopping condition:
+n / 7^k = 1  =>  k = log_7(n)
+
+Substitute:
+T(n) = 5^(log_7 n) * T(1)
+     + 3n^2 * SUM(i=0 to log_7(n)-1)[(5/49)^i]
+
+Simplify:
+5^(log_7 n) = n^(log_7 5)
+
+Since (5/49) < 1, the geometric sum = Theta(1)
+
+Final Answer:
+T(n) = Theta(n^2)
+
+
+Master Theorem:
+
+a = 5
+b = 7
+f(n) = 3n^2 = Theta(n^2)
+
+Compute:
+n^(log_b a) = n^(log_7 5)
+
+Since log_7(5) < 2, f(n) grows faster.
+
+Check:
+a < b^d  =>  5 < 7^2 = 49  (TRUE)
+
+Case 1 applies.
+
+Final Answer:
+T(n) = Theta(n^2)
+
+
+2. Master Theorem Problems
+
+(a) T(n) = 5T(n/9) + n^7
+
+a = 5, b = 9, d = 7
+5 < 9^7
+
+Case 1 applies.
+
+Answer:
+T(n) = Theta(n^7)
+
+
+(b) T(n) = 3T(n/3) + 7n
+
+a = 3, b = 3
+n^(log_3 3) = n
+
+f(n) = Theta(n)
+
+Case 2 applies.
+
+Answer:
+T(n) = Theta(n log n)
+
+(c) T(n) = 15T(n/4) + 100
+
+a = 15, b = 4
+f(n) = Theta(1)
+
+n^(log_4 15) grows faster than constant.
+
+Case 3 applies.
+
+Answer:
+T(n) = Theta(n^(log_4 15))
+
+(d) T(n) = 9T(n/3) + n^2
+
+a = 9, b = 3
+n^(log_3 9) = n^2
+
+f(n) = Theta(n^2)
+
+Case 2 applies.
+
+Answer:
+T(n) = Theta(n^2 log n)
+
+(e) T(n) = 6T(n/5) + n^3
+
+ a = 6, b = 5
+ n^(log_5 6) ≈ n^1.11
+
+ f(n) = n^3 grows faster
+
+ Case 1 applies.
+
+ Answer:
+ T(n) = Theta(n^3)
+
