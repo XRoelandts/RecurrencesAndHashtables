@@ -109,3 +109,45 @@ T(n) = Theta(n^2 log n)
  Answer:
  T(n) = Theta(n^3)
 
+
+3. Radix Sort (Lexicographic Order)
+
+Input:
+BOY, RIS, GUA, ATL, SUC, CES, QUI, PUT, ANT, VAU,
+HUI, VAL, SAN, SAN, CAQ, VIC, CAL, LA_GUA, TOL,
+META, CAU, BOL, AMA, MAG, CHO, NSA, GUA, CAS, COR
+
+Final Sorted Output:
+
+AMA
+ANT
+ATL
+BOL
+BOY
+CAL
+CAQ
+CAS
+CAU
+CES
+CHO
+COR
+GUA
+GUA
+HUI
+LA_GUA
+MAG
+META
+NSA
+PUT
+QUI
+RIS
+SAN
+SAN
+SUC
+TOL
+VAL
+VAU
+VIC
+
+
+4. Double Hashing
